@@ -183,8 +183,11 @@ Try {
 		}
 
 		# <Perform Uninstallation tasks here>
-		Execute-Process -Path "C:\Program Files\CodeBlocks\uninstall.exe" -Parameters "/S" -WindowStyle "Hidden" -PassThru -WaitForMsiExec
-		Start-Sleep -Seconds 30
+		$exitCode = Execute-Process -Path "$envProgramFiles\CodeBlocks\uninstall.exe" -Parameters "/S" -WindowStyle "Hidden" -PassThru
+		Wait-Process -name Un_A
+		Start-Sleep -s 10
+		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
+
 		##*===============================================
 		##* POST-UNINSTALLATION
 		##*===============================================
