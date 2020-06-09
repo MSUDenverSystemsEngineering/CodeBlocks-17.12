@@ -183,7 +183,7 @@ Try {
 		}
 
 		# <Perform Uninstallation tasks here>
-		Execute-Process -Path "C:\Program Files\CodeBlocks\uninstall.exe" -Parameters "/S"
+		Execute-Process -Path "C:\Program Files\CodeBlocks\uninstall.exe" -Parameters "/S" -WindowStyle "Hidden" -PassThru -WaitForMsiExec
 		Start-Sleep -Seconds 30
 		##*===============================================
 		##* POST-UNINSTALLATION
