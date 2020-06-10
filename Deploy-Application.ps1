@@ -185,7 +185,7 @@ Try {
 		# <Perform Uninstallation tasks here>
 		$exitCode = Execute-Process -Path "$envProgramFiles\CodeBlocks\uninstall.exe" -Parameters "/S" -WindowStyle "Hidden" -PassThru
 		Wait-Process -name Un_A
-		Start-Sleep -s 9
+		Start-Sleep -s 10
 		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
